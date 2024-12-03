@@ -34,6 +34,13 @@ public class JuegoColgado {
         	nomJugadors[i]=scr.nextLine();
         }
         
+        //Recuento de las victorias de cada jugador
+        int[] victories = new int[jugadors];
+        
+        //Rondes
+        for(int ronda = 1; ronda <= rondes; ronda++) {
+        	System.out.println("\nRonda" + ronda +" comenzando...");
+        }
         
 
 	}
