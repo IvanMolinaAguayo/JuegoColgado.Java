@@ -10,8 +10,8 @@ public class JuegoColgado {
         int jugadors;
         int maxIntents = 6;
         int rondes;
-        String palabraSecreta;
-        String palabraOculta;
+        String paraulaSecreta;
+        String paraulaOculta;
 
         
         //Pedimos el número de jugadores totales
@@ -26,6 +26,15 @@ public class JuegoColgado {
         System.out.println("¿Cuántas rondas van a jugar?");
         rondes = scr.nextInt();
         scr.nextLine();
+        
+        //Nombres de los jugadores
+        String[]nomJugadors = new String[jugadors];
+        for (int i = 0;i <jugadors;i++) {
+        	System.out.println("Ingresa el nombre del jugador"+(i+1)+":");
+        	nomJugadors[i]=scr.nextLine();
+        }
+        
+        
 
 	}
 
