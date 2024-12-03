@@ -21,6 +21,11 @@ public class JuegoColgado {
             jugadors = scr.nextInt();
             scr.nextLine(); 
         } while (jugadors < 2);
+        
+        //Pedimos el número de rondas que se van a jugar
+        System.out.println("¿Cuántas rondas van a jugar?");
+        rondes = scr.nextInt();
+        scr.nextLine();
 
 	}
 
