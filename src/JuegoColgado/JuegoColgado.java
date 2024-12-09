@@ -44,23 +44,23 @@ public class JuegoColgado {
 
         // Ciclo por rondas
         for (int ronda = 1; ronda <= rondes; ronda++) {
-            System.out.println("\nRonda " + ronda + " comenzando...");
+            System.out.println("\nRonda " + ronda + " comenzamos...");
             
             // Elección de la palabra aleatoria
             Random rand = new Random();
             palabraSecreta = listaDePalabras[rand.nextInt(listaDePalabras.length)];
-            System.out.println("La palabra secreta ha sido seleccionada (es aleatoria y está oculta para los jugadores).");
+            System.out.println("La palabra secreta ha sido seleccionada (es aleatoria y está relacionada con una ciudad española).");
 
-            // Ocultar la palabra secreta
+            // Ocultamos la palabra secreta
             palabraOculta = palabraSecreta.replaceAll(".", "_");
 
-            // Inicializar los intentos
+            // Inicializamos los intentos
             int[] intentosRestantes = new int[jugadors];
             for (int i = 0; i < jugadors; i++) {
                 intentosRestantes[i] = maxIntents;
             }
 
-            // Inicio del juego
+            // Iniciamos del juego
             boolean palabraAdivinada = false;
             while (!palabraAdivinada) {
                 for (int i = 0; i < jugadors; i++) {
@@ -75,17 +75,17 @@ public class JuegoColgado {
                     System.out.print("Ingresa una letra: ");
                     String letra = scr.nextLine().toLowerCase();
 
-                    // Verificar si la letra es válida
+                    // Verificamos si la letra es válida
                     if (letra.length() != 1 || !Character.isLetter(letra.charAt(0))) {
                         System.out.println("Por favor, ingresa solo una letra.");
-                        i--; // Repetir el turno del jugador
+                        i--;
                         continue;
                     }
 
-                    // Comprobar si la letra está en la palabra secreta
+                    // Comprobamos si la letra está en la palabra secreta
                     if (palabraSecreta.contains(letra)) {
                         System.out.println("¡Correcto!");
-                        // Actualizar la palabra oculta
+                        // Actualizamos la palabra oculta
                         StringBuilder nuevaPalabraOculta = new StringBuilder(palabraOculta);
                         for (int j = 0; j < palabraSecreta.length(); j++) {
                             if (palabraSecreta.charAt(j) == letra.charAt(0)) {
@@ -98,7 +98,7 @@ public class JuegoColgado {
                         intentosRestantes[i]--;
                     }
 
-                    // Verificar si la palabra ha sido adivinada
+                    // Verificamps si la palabra ha sido adivinada
                     if (palabraOculta.equals(palabraSecreta)) {
                         palabraAdivinada = true;
                         victorias[i]++;
@@ -106,7 +106,7 @@ public class JuegoColgado {
                         break;
                     }
 
-                    // Verificar si se han quedado sin intentos
+                    // Verificamos si algún jugador se ha quedado sin intentos
                     if (intentosRestantes[i] <= 0) {
                         System.out.println(nombresJugadores[i] + " se ha quedado sin intentos.");
                     }
@@ -114,7 +114,7 @@ public class JuegoColgado {
             }
         }
 
-        // Mostrar los puntajes finales
+        // Mostramos los puntajes finales
         System.out.println("\nPuntajes finales:");
         int maxPuntajes = 0;
         for (int i = 0; i < victorias.length; i++) {
@@ -124,7 +124,7 @@ public class JuegoColgado {
             }
         }
 
-        // Determinar y mostrar el ganador
+        // Determinamos y mostramos el ganador
         System.out.println("\n¡Ganadores!");
         for (int i = 0; i < victorias.length; i++) {
             if (victorias[i] == maxPuntajes) {
