@@ -52,7 +52,31 @@ public class JuegoColgado {
             // Ocultar la palabra secreta
             paraulaOculta = paraulaSecreta.replaceAll(".", "_");
 
+            // Inicializar los intentos
+            int[] intentsRestants = new int[jugadors];
+            for (int i = 0; i < jugadors; i++) {
+                intentsRestants[i] = maxIntents;
 
+            }
+            
+            // Empezar a jugar
+            boolean paraulaAdivinada = false;
+            while (!paraulaAdivinada) {
+                for (int i = 0; i < jugadors; i++) {
+                    if (intentsRestants[i] <= 0) {
+                        System.out.println(nomJugadors[i] + " se ha quedado sin intentos.");
+                        continue;
+                    }
+                    
+                    System.out.println("nTurno de " + nomJugadors[i]);
+                    System.out.println("Palabra oculta: " + paraulaOculta);
+                    System.out.println("Intentos restantes: " + intentsRestants[i]);
+                    System.out.print("Ingresa una letra: ");
+                    String lletra = scr.nextLine().toLowerCase();
+
+                }
+            }
+                  
         }
         
 
