@@ -103,7 +103,7 @@ public class JuegoColgado {
                         break;
 
                     }
-                    // Verificar si  algún jugador se ha quedado sin intentos
+                    // Verificar si  algún jugador se ha quedado sin intentos 
                     if (intentsRestants[i] <= 0) {
                         System.out.println(nomJugadors[i] + " se ha quedado sin intentos.");
                     }
