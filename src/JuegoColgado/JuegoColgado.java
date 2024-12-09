@@ -73,6 +73,28 @@ public class JuegoColgado {
                     System.out.println("Intentos restantes: " + intentsRestants[i]);
                     System.out.print("Ingresa una letra: ");
                     String lletra = scr.nextLine().toLowerCase();
+                    
+                    // Verificamos que la letra es válida
+                    if (lletra.length() != 1 || !Character.isLetter(lletra.charAt(0))) {
+                        System.out.println("Por favor, ingresa solo una letra.");
+                        i--;
+                        continue;   
+                        }
+                    // Comprovamos que la letra elegida está en la palabra oculta
+                    if (paraulaSecreta.contains(lletra)) {
+                        System.out.println("¡Correcto!");
+                        // Si la letra se encuentra en la palabra, actualizamos los espacios vacios donde se encuntra la palabra
+                        StringBuilder novaparaulaOculta = new StringBuilder(paraulaOculta);
+                        for (int j = 0; j < paraulaSecreta.length(); j++) {
+                            if (paraulaSecreta.charAt(j) == lletra.charAt(0)) {
+                                novaparaulaOculta.setCharAt(j, lletra.charAt(0));
+                            }
+                        }
+                        paraulaOculta = novaparaulaOculta.toString();
+                    } else {
+                        System.out.println("¡Incorrecto!");
+                        intentsRestants[i]--;
+                    }
 
                 }
             }
