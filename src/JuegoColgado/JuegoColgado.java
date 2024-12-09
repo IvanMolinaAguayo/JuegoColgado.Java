@@ -40,6 +40,19 @@ public class JuegoColgado {
         //Rondes
         for(int ronda = 1; ronda <= rondes; ronda++) {
         	System.out.println("\nRonda" + ronda +" comenzando...");
+        	
+        	   // Elegir la palabra secreta
+            System.out.println(nomJugadors[0] + ", ingresa la palabra secreta: ");
+            paraulaSecreta = scr.nextLine().toLowerCase();
+            while (paraulaSecreta.isEmpty()) {
+                System.out.println("La palabra secreta no puede estar en blanco.");
+                paraulaSecreta = scr.nextLine().toLowerCase();
+            }
+            
+            // Ocultar la palabra secreta
+            paraulaOculta = paraulaSecreta.replaceAll(".", "_");
+
+
         }
         
 
