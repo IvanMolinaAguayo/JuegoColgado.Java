@@ -95,6 +95,18 @@ public class JuegoColgado {
                         System.out.println("¡Incorrecto!");
                         intentsRestants[i]--;
                     }
+                    // Verificar si la palabra ha sido adivinada
+                    if (paraulaOculta.equals(paraulaSecreta)) {
+                        paraulaAdivinada = true;
+                        victories[i]++;
+                        System.out.println(nomJugadors[i] + " ha adivinado la palabra: " + paraulaSecreta);
+                        break;
+
+                    }
+                    // Verificar si  algún jugador se ha quedado sin intentos
+                    if (intentsRestants[i] <= 0) {
+                        System.out.println(nomJugadors[i] + " se ha quedado sin intentos.");
+                    }
 
                 }
             }
