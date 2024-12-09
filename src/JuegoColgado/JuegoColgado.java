@@ -49,17 +49,17 @@ public class JuegoColgado {
                 paraulaSecreta = scr.nextLine().toLowerCase();
             }
             
-            // Ocultar la palabra secreta
+            // Ocultamos  la palabra secreta
             paraulaOculta = paraulaSecreta.replaceAll(".", "_");
 
-            // Inicializar los intentos
+            // Inicializamos los intentos
             int[] intentsRestants = new int[jugadors];
             for (int i = 0; i < jugadors; i++) {
                 intentsRestants[i] = maxIntents;
 
             }
             
-            // Empezar a jugar
+            // Empieza el juego 
             boolean paraulaAdivinada = false;
             while (!paraulaAdivinada) {
                 for (int i = 0; i < jugadors; i++) {
@@ -95,7 +95,7 @@ public class JuegoColgado {
                         System.out.println("¡Incorrecto!");
                         intentsRestants[i]--;
                     }
-                    // Verificar si la palabra ha sido adivinada
+                    // Verificamos si la palabra ha sido adivinada
                     if (paraulaOculta.equals(paraulaSecreta)) {
                         paraulaAdivinada = true;
                         victories[i]++;
@@ -103,12 +103,29 @@ public class JuegoColgado {
                         break;
 
                     }
-                    // Verificar si  algún jugador se ha quedado sin intentos 
+                    // Verificamos si algún jugador se ha quedado sin intentos 
                     if (intentsRestants[i] <= 0) {
                         System.out.println(nomJugadors[i] + " se ha quedado sin intentos.");
                     }
-
+                    // Mostramos la puntuación final de los jugadores
+                    System.out.println("\nPuntajes finales:");
+                    int maxPuntatges = 0;
+                    for (int j = 0; j < victories.length; i++) {
+                        System.out.println(nomJugadors[i] + ": " + victories[i]);
+                        if (victories[i] > maxPuntatges) {
+                            maxPuntatges = victories[i];
+                        }
+                    }
+                    // Determinamos  y mostramos el ganador
+                    System.out.println("\n¡Ganadores!");
+                    for (int j = 0; j < victories.length; i++) {
+                        if (victories[i] == maxPuntatges) {
+                            System.out.println(nomJugadors[i]);
+                        }
+                    }
                 }
+               
+
             }
                   
         }
